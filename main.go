@@ -82,7 +82,7 @@ func main() {
 
 	tick := time.NewTicker(time.Duration(*interval) * time.Second)
 	sc := make(chan os.Signal, 1)
-	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt, os.Kill)
+	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
 
 	logWithTimestamp("Starting ticker...")
 	for {
