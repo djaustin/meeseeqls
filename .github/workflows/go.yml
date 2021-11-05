@@ -27,7 +27,12 @@ jobs:
     - name: Test
       run: go test -v ./...
 
-    - name: go-semantic-release
-      # You may pin to the exact commit or the version.
-      # uses: go-semantic-release/action@66fbf3fb6938fd9a582b4afd63b486b8d1103ff1
-      uses: go-semantic-release/action@v1.15.0
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        # Artifact name
+        name: meeseeqls.exe
+        # A file, directory or wildcard pattern that describes what to upload
+        path: meeseeqls.exe
+        # The desired behavior if no files are found using the provided path.
+   
