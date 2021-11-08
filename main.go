@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -15,6 +16,10 @@ import (
 	"github.com/spf13/viper"
 )
 
+var (
+	Version = "development"
+)
+
 // Result represents the result of a query send to the database
 type Result struct {
 	Start       int64         `json:"queryStart"`
@@ -25,7 +30,12 @@ type Result struct {
 }
 
 func main() {
-
+	showVersion := flag.Bool("version", false, "Displays version information about the application")
+	flag.Parse()
+	if *showVersion {
+		fmt.Printf("Version:\t%v\n", Version)
+		return
+	}
 	conf, err := initConfig()
 	if err != nil {
 		log.Fatalf("error initialising application config: %v", err)
