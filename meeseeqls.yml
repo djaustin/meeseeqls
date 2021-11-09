@@ -1,0 +1,21 @@
+connectors:
+  - name: new york
+    query: select sysdate from dual
+    database:
+      username: user 
+      password: pass
+      connectionString: 192.168.1.3/NY
+    sourceName: bristol
+    destinationName: new york
+    pollingInterval: 1
+  - name: rotterdam
+    query: select count(*) from event
+    database:
+      username: user 
+      password: pass
+      connectionString: 192.168.1.4/RT
+    sourceName: bristol
+    destinationName: rotterdam
+    pollingInterval: 2
+output: 
+  path: ./meeseeqls.json
