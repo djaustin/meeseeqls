@@ -1,20 +1,19 @@
 package config
 
 type Config struct {
-	Output   Output
-	Metadata Metadata
-	Database Database
+	Output     Output
+	Connectors []Connector
 }
 
+type Connector struct {
+	Name, Query, SourceName, DestinationName string
+	PollingInterval                          int
+	Database                                 Database
+}
 type Output struct {
-	FilePath string
-}
-
-type Metadata struct {
-	Source, Destination string
+	Path string
 }
 
 type Database struct {
-	Username, Password, ConnectionString, SQLFilePath string
-	PollingInterval                                   int
+	Username, Password, ConnectionString string
 }
