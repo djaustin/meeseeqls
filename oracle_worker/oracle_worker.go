@@ -97,6 +97,7 @@ func (o *OracleWorker) executeQuery() error {
 	for rows.Next() {
 		rows.Scan(&row)
 	}
+	log.Printf("[%s]\tquery completed", o.Name)
 	return nil
 }
 
