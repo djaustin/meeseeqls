@@ -8,9 +8,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/djaustin/meeseeqls/config"
-	"github.com/djaustin/meeseeqls/oracle_worker"
-	"github.com/djaustin/meeseeqls/worker"
+	"github.com/djaustin/meesqls/config"
+	"github.com/djaustin/meesqls/oracle_worker"
+	"github.com/djaustin/meesqls/worker"
 	_ "github.com/godror/godror"
 	"github.com/spf13/viper"
 )

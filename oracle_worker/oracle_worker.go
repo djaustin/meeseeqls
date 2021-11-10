@@ -7,8 +7,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/djaustin/meeseeqls/config"
-	"github.com/djaustin/meeseeqls/worker"
+	"github.com/djaustin/meesqls/config"
+	"github.com/djaustin/meesqls/worker"
 )
 
 type OracleWorker struct {
