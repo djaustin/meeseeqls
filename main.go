@@ -38,15 +38,13 @@ func main() {
 // initConfig initiliases a Config object from a config file, assigning default values where appropriate
 func initConfig() (config.Config, error) {
 	config := config.Config{}
-	viper.SetConfigName("meeseeqls.yml")
+	viper.SetConfigName("meesqls")
 	viper.SetConfigType("yaml")
-	wd, err := os.Getwd()
-	if err != nil {
-		log.Printf("error finding working directory: %v", err)
-	} else {
-		viper.AddConfigPath(wd)
-	}
-	err = viper.ReadInConfig()
+	viper.AddConfigPath("/etc/meesqls/")
+	viper.AddConfigPath("$HOME/.meesqls")
+	viper.AddConfigPath(".")
+
+	err := viper.ReadInConfig()
 	if err != nil {
 		return config, fmt.Errorf("error reading configuration: %w", err)
 	}
