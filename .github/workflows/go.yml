@@ -21,7 +21,7 @@ jobs:
       uses: "WyriHaximus/github-action-get-previous-tag@v1"
     
     - name: Build
-      run: go build -o meeseeqls.exe -ldflags="-X main.Version=${{ steps.tag.outputs.tag }}"
+      run: go build -o meesqls.exe -ldflags="-X main.Version=${{ steps.tag.outputs.tag }}"
       env: 
         GOOS: windows
         GOARCH: amd64
@@ -32,6 +32,6 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.4
       with:
-        name: meeseeqls-${{ steps.tag.outputs.tag }}.exe
-        path: ./meeseeqls.exe
+        name: meesqls-${{ steps.tag.outputs.tag }}.exe
+        path: ./meesqls.exe
    

@@ -18,4 +18,4 @@ connectors:
     destinationName: rotterdam
     pollingInterval: 2
 output: 
-  path: ./meeseeqls.json
+  path: ./meesqls.json
