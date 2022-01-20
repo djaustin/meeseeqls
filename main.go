@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -22,7 +23,16 @@ var (
 // Result represents the result of a query send to the database
 
 func main() {
+	showVersion := flag.Bool("version", false, "shows the version information for the application")
+	flag.Parse()
+
+	if *showVersion {
+		fmt.Println(Version)
+		return
+	}
+
 	conf, err := initConfig()
+
 	if err != nil {
 		log.Fatalln("failed to initialise config", err)
 	}
