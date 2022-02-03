@@ -93,11 +93,13 @@ func (o *OracleWorker) executeQuery() error {
 	}
 	defer rows.Close()
 
+	log.Printf("[%s]\tquery response received", o.Name)
+
 	var row string
 	for rows.Next() {
 		rows.Scan(&row)
 	}
-	log.Printf("[%s]\tquery completed", o.Name)
+	log.Printf("[%s]\tquery rows processed", o.Name)
 	return nil
 }
 

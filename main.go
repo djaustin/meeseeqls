@@ -34,7 +34,7 @@ func main() {
 	conf, err := initConfig()
 
 	if err != nil {
-		log.Fatalln("failed to initialise config", err)
+		log.Fatalln("failed to initialise config:", err)
 	}
 
 	results := processConnectors(conf.Connectors)
